@@ -1,0 +1,51 @@
+<noinclude>
+This is the "Task" template.
+</noinclude>
+<includeonly>
+{{#arraymap:{{{dids|}}}|;|x| {{#subobject:did |x }} |}}
+{{#ifeq:{{{assignees|}}}|ALL| {{#set: noassignee=true}} |  }}
+{{#set: percent={{#expr: ({{#arraymap:{{{assignees|}}}|,|x|{{#ask: [[-x::{{FULLPAGENAME}}#did]] |mainlabel=- |headers=hide |format=count}} |+}}) / ({{#ask:[[-assignee::{{PAGENAME}}]]|format=count}}*{{#ask:[[-entity::{{PAGENAME}}]]|format=count}}) }} }}
+<div style="float: right; clear: both; margin: 1em; padding: 2px; width: auto; text-align: left; font-size: 90%; line-height: 1.4em;">
+This task is done to {{#expr: {{#ask:[[{{PAGENAME}}]]|?percent|headers=hide |mainlabel=-}} *100}}%.
+{{#ifeq:{{#expr:  {{#ask:[[{{PAGENAME}}]]|?percent|headers=hide |mainlabel=-}}}}|1|[[File:Ampel_gruen.png]]{{#set: status=Completed}}| {{#ifeq: {{#expr: {{#ask:[[{{PAGENAME}}]]|?percent|headers=hide |mainlabel=-}}}}|0|[[File:Ampel_rot.png]]{{#set: status=Not started}}|[[File:Ampel_gelb.png]]{{#set: status=In progress}} }} }}
+</div>
+{| class="wikitable"
+! Title
+| [[Title::{{{title|}}}]] 
+|-
+! Creator
+| [[Creator::{{{creator|}}}]] 
+|-
+! Assignees
+| {{#arraymap:{{{assignees|}}}|,|x|[[assignee::x]]|,&#32;}}
+|-
+! Status
+| {{#ask:[[{{PAGENAME}}]]|?status|headers=hide |mainlabel=-}}
+|-
+! Created
+| [[Created::{{{created|}}}]] 
+|-
+! Reminder
+| [[Reminder::{{{reminder|}}}]] 
+|-
+! Deadline
+| [[Deadline::{{{deadline|}}}]] 
+|-
+! Priority
+| [[Priority::{{{priority|}}}]] 
+|-
+! Entities
+|  {{#arraymap: {{{entities|}}}|,|x|[[entity::x]]|,&#32;}}
+|}
+{{#formlink:form=Task|target={{FULLPAGENAME}}|link text=Edit this task|link type=post button }}
+
+===Description===
+{{{description|}}}
+
+===Notes===
+{{{notes|}}}
+
+<br >
+A list of all tasks: [[Special:Tasks]]
+[[Category:Task(s)]]
+</includeonly>

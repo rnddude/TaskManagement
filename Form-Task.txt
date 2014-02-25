@@ -1,0 +1,45 @@
+<noinclude>
+This is the "Task" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=Task}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|Task}}}
+{| class="formtable"
+! Description:
+| {{{field|description|input type=textarea|rows=8|cols=50|property=description}}}
+|-
+! Creator:
+| {{{field|creator|mandatory|property=creator|default=current user}}}
+|-
+! Assignees:
+| {{{field|assignees|property=assignees}}}
+|-
+! Created:
+| {{{field|created|mandatory|property=created|input type=date|default=now}}}
+|-
+! Reminder:
+| {{{field|reminder|property=reminder|input type=date}}}
+|-
+! Deadline:
+| {{{field|deadline|property=deadline|input type=date}}}
+|-
+! Notes:
+| {{{field|notes|property=notes|input type=textarea|rows=8|cols=50}}}
+|-
+! Priority:
+| {{{field|priority|mandatory|property=priority}}}
+|-
+! Entities:
+| {{{field|entities|mandatory|property=entities}}}
+{{{field|dids|hidden}}}
+{{{field|title|hidden|property=title|default={{FULLPAGENAME}} }}}
+|}
+{{{end template}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|cancel}}}
+</includeonly>

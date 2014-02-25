@@ -1,0 +1,15 @@
+<noinclude>
+This is the "TaskBox" template.
+</noinclude>
+<includeonly>
+<div style="float: right; clear: both; margin: 1em; padding: 2px; width: auto; text-align: left; font-size: 90%; line-height: 1.4em; border:1px solid; border-radius:5px; -moz-border-radius:5px; background-color: #FFFFCC;">
+{{#arraymap: {{#ask: [[Category:Task(s)]] [[entity::~*{{FULLPAGENAME}}*]] | ?title | format=list | mainlabel=- | headers=hide | link=none | sep=,}}|,|@@@|
+Task: '''{{#ask: [[title::@@@]]}}'''<br>
+{{#ifeq: {{#ask: [[title::@@@]] [[assignee::{{#USERNAME:}}]] | format=count}}|1|{{#ifeq: {{#ask: [[-Has subobject::@@@]] [[{{#USERNAME:}}::~*{{FULLPAGENAME}}*]] |format=count}}|0|{{#autoedit:form=Task|target={{#ask: [[title::@@@]] | link=none}}|link type=button|link text=I completed this task.|query string=Task[dids]={{#USERNAME:}}={{FULLPAGENAME}};{{#arraymap:{{#ask: [[title::@@@]]| ?assignee | format=list | mainlabel=- | headers=hide | link=none | sep=,}}|,|x| {{#arraymap:{{#ask: [[-Has subobject::@@@]] | ?x | format=list | mainlabel=- | headers=hide | link=none | sep=,}}|,|y|x=y;|}} |}}}} <!-- /autoedit -->|}} <!-- /ifeq -->|}}  <!-- /ifeq -->
+{{#ifeq: {{#ask: [[title::@@@]] [[noassignee::true]]| format=count}}|1|{{#ifeq: {{#ask: [[-Has subobject::@@@]] [[ALL::~*{{FULLPAGENAME}}*]] |format=count}}|0|{{#autoedit:form=Task|target={{#ask: [[title::@@@]] | link=none}}|link type=button|link text=I completed this task.|query string=Task[dids]=ALL={{FULLPAGENAME}};{{#arraymap:{{#ask: [[-Has subobject::@@@]] | ?ALL |       format=list | mainlabel=- | headers=hide | link=none | sep=,}}|,|y|ALL=y;|}} }} <!-- /autoedit -->|}} <!-- /ifeq -->|}}  <!-- /ifeq -->
+{{#ifeq: {{#ask: [[title::@@@]] |?Noassignee |mainlabel=- |headers=hide |link=none}}|True|{{#ifeq: {{#ask: [[-Has subobject::@@@]] [[ALL::~*{{FULLPAGENAME}}*]] |format=count}}|1|This task has been completed for this entity.|This task has not been completed for this entity. }}|{{#ifeq:{{#expr: {{#arraymap:{{#ask: [[title::@@@]] |?assignee|format=list|mainlabel=-|headers=hide|link=none|sep=, |default=}}|,|x| {{#ifeq: {{#ask: [[-Has subobject::@@@]] [[x::~*{{FULLPAGENAME}}*]] |format=count}}|0|0|1 }} |+}}    }}|0|This task has not been completed for this entity.|This task was already done by
+{{#arraymap:{{#ask: [[title::@@@]] |?assignee|format=list|mainlabel=-|headers=hide|link=none|sep=, |default=}}|,|x| 
+{{#ifeq: {{#ask: [[-Has subobject::@@@]] [[x::~*{{FULLPAGENAME}}*]] |format=count}}|0| |x }} |,&#32;}}.}}  <!-- /ifeq --><br> }}  <!-- /ifeq -->|<br>}} 
+</div>
+[[Category:Page with Task]]
+</includeonly>
