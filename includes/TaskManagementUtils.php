@@ -2,7 +2,7 @@
 /**
  * Helper functions for the Task Management extension.
  *
- * @author dkleinmann
+ * @author rnddude
  * @file
  */
  
@@ -16,7 +16,7 @@ if ( !defined( 'SMW_VERSION' ) ) {
        exit( 1 );
 }
 
-class TMUtils {
+class TaskManagementUtils {
 
 	static function insertTaskBoxTemplate($form, $title, $targetContent) {
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliases for TM
+ * Aliases for TaskManagement
  *
  * @file
  * @ingroup Extensions
@@ -9,14 +9,14 @@
 $specialPageAliases = array();
  
 /** English
- * @author dkleinmann
+ * @author rnddude
  */
 $specialPageAliases[ 'en' ] = array(
         'Tasks' => array( 'Tasks')
 );
  
 /** Deutsch
- * @author dkleinmann
+ * @author rnddude
  */
 $specialPageAliases[ 'de' ] = array(
         'Tasks' => array( 'Aufgaben')

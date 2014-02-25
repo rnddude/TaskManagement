@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Main entry point for the Task Management (TM) Extension
+ * Main entry point for the Task Management Extension
  */
 
 if ( !defined( 'MEDIAWIKI' ) ) {
         echo <<<EOT
 To install TM, put the following line in LocalSettings.php:
-require_once( "\$IP/extensions/TM/TM.php" );
+require_once( "\$IP/extensions/TaskManagement/TaskManagement.php" );
 EOT;
         exit( 1 );
 }
@@ -21,9 +21,9 @@ global $smwgIP;
 
 $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
-    'name' => 'Task Management (TM) Extension',
+    'name' => 'Task Management Extension',
     'author' => 'David Kleinmann', 
-    'url' => 'https://www.mediawiki.org/wiki/Extension:TM', 
+    'url' => 'https://www.mediawiki.org/wiki/Extension:TaskManagement', 
     'description' => 'This extension is for managing tasks.',
     'descriptionmsg' => 'tm-desc',
     'version'  => 0.1,
@@ -37,13 +37,13 @@ $wgAutoloadClasses['Tasks'] = $tmIP . '/specials/Tasks.php';
 $wgSpecialPageGroups['Tasks'] = 'pages';
 
 // Utils
-$wgAutoloadClasses['TMUtils'] = $tmIP . '/includes/TMUtils.php';
+$wgAutoloadClasses['TaskManagementUtils'] = $tmIP . '/includes/TaskManagementUtils.php';
 
 // Hooks
-$wgHooks[ 'sfWritePageData' ][] = 'TMUtils::insertTaskBoxTemplate';
-$wgHooks[ 'sfWritePageData' ][] = 'TMUtils::notifyAssignees';
+$wgHooks[ 'sfWritePageData' ][] = 'TaskManagementUtils::insertTaskBoxTemplate';
+$wgHooks[ 'sfWritePageData' ][] = 'TaskManagementtils::notifyAssignees';
 
 // Languages & Aliases
-$wgExtensionMessagesFiles[ 'TM' ] = $tmIP . '/TM.i18n.php';
-$wgExtensionMessagesFiles[ 'TMAlias' ] = $tmIP . '/TM.alias.php';
+$wgExtensionMessagesFiles[ 'TaskManagement' ] = $tmIP . '/TaskManagement.i18n.php';
+$wgExtensionMessagesFiles[ 'TaskManagementAlias' ] = $tmIP . '/TaskManagement.alias.php';
 }

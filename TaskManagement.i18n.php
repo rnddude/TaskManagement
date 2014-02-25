@@ -1,6 +1,6 @@
 <?php
 /**
- * Internationalisation for TM
+ * Internationalisation for TaskManagement
  *
  * @file
  * @ingroup Extensions
@@ -8,7 +8,7 @@
 $messages = array();
  
 /** English
- * @author dkleinmann
+ * @author rnddude
  */
 $messages[ 'en' ] = array(
         'tm' => 'Task Management',
@@ -32,7 +32,7 @@ $2',
 );
  
 /** German
- * @author dkleinmann
+ * @author rnddude
  */
 $messages[ 'de' ] = array(
         'tm' => 'Aufgabenverwaltung',
@@ -56,7 +56,7 @@ $2',
 );
 
 /** Message documentation
- * @author dkleinmann
+ * @author rnddude
  */
 $messages[ 'qqq' ] = array(
         'tm' => 'the name of the extension',
