@@ -73,11 +73,11 @@ class TaskManagementUtils {
                         $page = new WikiPage( $targetTitle );
                         $content = $page->getContent();
                         if (strpos($content->getNativeData(),'{{TaskBox}}') !== false) {
-				$resultsTasks = self::getQueryResults( "[[Category:Task(s)]] [[Entity::".$pageTitle->getLongWikiText()."]]", array('title'), true );
-					if ( $resultsTasks->getCount()===0) {
+							$resultsTasks = self::getQueryResults( "[[Category:Task(s)]] [[Entity::".$pageTitle->getLongWikiText()."]]", array('title'), true );
+							if ( $resultsTasks->getCount()===0) {
                					$newContent = new WikitextContent(str_replace('{{TaskBox}}','',$content->getNativeData()));
-						$page->doEditContent($newContent,wfMessage('tm-tasbox-removed'),EDIT_MINOR);
-					}
+								$page->doEditContent($newContent,wfMessage('tm-tasbox-removed'),EDIT_MINOR);
+							}
                         }
 		}
                 return TRUE;
