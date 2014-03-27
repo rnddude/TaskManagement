@@ -96,7 +96,7 @@ class TaskManagementUtils {
 		$t = getdate();
 		$today = date( 'd F Y', $t[0] );
 
-		$query_string = "[[reminder::$today]][[deadline::> $today]]";
+		$query_string = "[[reminder::".$today."]][[deadline::>".$today."]]";
 		
 		$properties_to_display = array( 'reminder', 'assignee', 'deadline' );
 
@@ -128,7 +128,7 @@ class TaskManagementUtils {
 				}
 		}
 		
-		$query_string = "[[deadline::$today]]";
+		$query_string = "[[deadline::".$today."]]";
 		
 		$properties_to_display = array( 'reminder', 'assignee', 'deadline' );
 
@@ -162,12 +162,17 @@ class TaskManagementUtils {
 		return TRUE;
 	}
 	
+	/**
+	* The following two functions are based on code frome the extension Semantic Tasks by Steren Giannini & Ryan Lane
+	* released under GNU GPLv2 (or later)
+	* http://www.mediawiki.org/wiki/Extension:Semantic_Tasks
+	*/
 	static function notifyAssignees($form, $title, $targetContent) {
 		global $wgSitename, $wgServer, $wgScriptPath, $wgNoReplyAddress, $wgLang;
 		
 		$titleParts = explode("[[title::", $targetContent);
 		$title = explode("]]",$titleParts[1]);
-		$results = self::getQueryResults( "[[title:$title]]", array('title'), true );
+		$results = self::getQueryResults( "[[title::".$title[0]."]]", array('title'), true );
         	if ( $results->getCount()===0 ) {
             	return FALSE;
             }
