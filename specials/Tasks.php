@@ -42,7 +42,7 @@ class Tasks extends SpecialPage {
                 } else {
                 $output->addWikiText(wfMessage('tm-special-text-personal'));
                 $output->addWikiText(wfMessage('tm-special-text-personal-asignee'));
-                $table = '{{#ask: [[Category:Task(s)]] [[Asignee::{{#USERNAME:}}]] [[percent::<1]]
+                $table = '{{#ask: [[Category:Task(s)]] [[Asignee::'.$param.']] [[percent::<1]]
 				| ?title 
 				| ?assignee
 				| ?creator				
@@ -55,7 +55,7 @@ class Tasks extends SpecialPage {
 				';
 				$output->addWikiText( $table );
 				$output->addWikiText(wfMessage('tm-special-text-personal-creator'));
-                $table = '{{#ask: [[Category:Task(s)]] [[Asignee::{{#USERNAME:}}]]
+                $table = '{{#ask: [[Category:Task(s)]] [[Asignee::'.$param.']]
 				| ?title 
 				| ?assignee
 				| ?creator				
