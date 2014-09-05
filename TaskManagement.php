@@ -60,4 +60,4 @@ $wgHooks[ 'sfWritePageData' ][] = 'TaskManagementtils::notifyAssignees';
 // Languages & Aliases
 $wgExtensionMessagesFiles[ 'TaskManagement' ] = $tmIP . '/TaskManagement.i18n.php';
 $wgExtensionMessagesFiles[ 'TaskManagementAlias' ] = $tmIP . '/TaskManagement.alias.php';
-}
+
