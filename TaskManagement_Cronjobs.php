@@ -16,7 +16,7 @@
 global $smwgIP;
 $IP = realpath( dirname( __FILE__ ) . "/../.." );
 require_once( "$IP/maintenance/commandLine.inc" );
-require_once( $smwgIP . '/includes/Factbox.php' );
+require_once( $smwgIP . '/src/Factbox/Factbox.php' );
 require_once( dirname( __FILE__ ) . '/includes/TaskManagementUtils.php' );
 
 print("START TM REMINDER & DEADLINE EMAILS\n");
